@@ -17,10 +17,13 @@ redis:
   volumes:
     - /var/db/redis:/data
 pg:
-  image: postgres:9.3
+  image: sameersbn/postgresql:9.4
+  volumes:
+    - /var/db/postgresql/:/var/lib/postgresql/
   environment:
-    POSTGRES_USER: hackathon
-    POSTGRES_PASSWORD: sosecretpassword
+    DB_USER: hackathon
+    DB_PASS: sosecretpassword
+    DB_NAME: hackathon
 mysql:
   image: mysql
   environment:
