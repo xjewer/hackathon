@@ -8,11 +8,9 @@ COPY hackathon-app-entrypoint.sh /
 
 RUN mkdir /var/log/php5-fpm/
 
-RUN rm -rf /var/www/topface && \
-    mkdir /var/www/project && \
+RUN mkdir /var/www/project && \
     chown www-data:www-data /var/www/project
 
+RUN /hackathon-app-entrypoint.sh
 
 EXPOSE 80 443 9000
-
-ENTRYPOINT ["/hackathon-app-entrypoint.sh"]

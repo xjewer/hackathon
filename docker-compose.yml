@@ -4,6 +4,8 @@ app:
     - /var/log/hackathon/nginx:/var/log/nginx
     - /var/log/hackathon/php-fpm:/var/log/php5-fpm
     - /var/www/project:/var/www/project
+  environment:
+    TOPFACE_USER: whatever
   ports:
     - "80:80"
     - "443:443"

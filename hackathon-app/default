@@ -1,1 +1,2 @@
-include /var/www/project/nginx*.conf;
+#include /var/www/project/nginx*.conf;
+include /var/www/project/config/dynamic/nginx.config*;
