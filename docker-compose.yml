@@ -12,8 +12,6 @@ app:
   links:
     - redis
     - pg
-    - mc
-    - mysql
 redis:
   image: redis:2.8
   volumes:
@@ -26,15 +24,8 @@ pg:
     DB_USER: hackathon
     DB_PASS: sosecretpassword
     DB_NAME: hackathon
-mysql:
-  image: mysql
-  environment:
-    MYSQL_ROOT_PASSWORD: mysqlsecretrootpassord
-    MYSQL_USER: hackathon
-    MYSQL_PASSWORD: hackathonpassword
-    MYSQL_DATABASE: hackathon
-  volumes:
-    - /var/db/mysql:/var/lib/mysql
-mc:
-  image: memcached:latest
-  command: memcached -m 512
+fatwood:
+  build: ../fatwood
+  command: -listen 0.0.0.0:15000 -config /configs/quimby.json
+  ports:
+    - 15000:15000
