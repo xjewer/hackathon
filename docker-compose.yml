@@ -26,6 +26,8 @@ pg:
     DB_USER: hackathon
     DB_PASS: sosecretpassword
     DB_NAME: hackathon
+    ports:
+    - 5432:5432
 fatwood:
   build: ../fatwood
   command: -listen 0.0.0.0:15000 -config /configs/quimby.json
