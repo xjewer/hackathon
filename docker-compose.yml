@@ -29,3 +29,5 @@ fatwood:
   command: -listen 0.0.0.0:15000 -config /configs/quimby.json
   ports:
     - 15000:15000
+  links:
+    - redis
