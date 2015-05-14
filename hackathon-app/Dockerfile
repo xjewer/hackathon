@@ -1,5 +1,8 @@
 FROM docker.core.tf/topface-dev
 
+#install packages
+RUN apt-get update && apt-get install -y gettext
+
 COPY php-fpm.conf /etc/php5/fpm/
 COPY default /etc/nginx/sites-available/
 COPY www.conf /etc/php5/fpm/pool.d/
