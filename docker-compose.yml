@@ -26,7 +26,7 @@ pg:
     DB_USER: hackathon
     DB_PASS: sosecretpassword
     DB_NAME: hackathon
-    ports:
+  ports:
     - 5432:5432
 fatwood:
   build: ../fatwood
