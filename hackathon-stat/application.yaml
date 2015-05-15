@@ -1,0 +1,27 @@
+http:
+  port: 13200
+  addr: 0.0.0.0
+
+mysql:
+  user: hackathon
+  password: hackathonpassword
+  connectionLimit: 20
+  host: mysql
+  database: minCohortDb
+
+log4js:
+  appenders:
+    -
+      type: file
+      filename: log/application.log
+      maxLogSize: 20480,
+      backups: 30,
+      pattern: -yyyy-MM-dd
+      category: application
+    -
+      type: file
+      filename: log/http.log
+      maxLogSize: 20480,
+      backups: 30,
+      pattern: -yyyy-MM-dd
+      category: http

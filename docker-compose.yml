@@ -14,6 +14,7 @@ app:
   links:
     - redis
     - pg
+    - stat
 redis:
   image: redis:2.8
   volumes:
@@ -35,3 +36,18 @@ fatwood:
     - 15000:15000
   links:
     - redis
+mysql:
+  image: mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: mysqlsecretrootpassord
+    MYSQL_USER: hackathon
+    MYSQL_PASSWORD: hackathonpassword
+    MYSQL_DATABASE: minCohortDb
+  volumes:
+    - /var/db/mysql:/var/lib/mysql
+stat:
+  build: ./hackathon-stat
+  ports:
+    - 13200:13200
+  links:
+    - mysql
