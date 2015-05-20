@@ -13,12 +13,22 @@ app:
     - 9000:9000
   links:
     - redis
+    - redis2
+    - redis3
     - pg
     - stat
 redis:
   image: redis:2.8
   volumes:
     - /var/db/redis:/data
+redis2:
+  image: redis:2.8
+  volumes:
+    - /var/db/redis2:/data
+redis3:
+  image: redis:2.8
+  volumes:
+    - /var/db/redis3:/data
 pg:
   image: sameersbn/postgresql:9.4
   volumes:
@@ -35,7 +45,7 @@ fatwood:
   ports:
     - 15000:15000
   links:
-    - redis
+    - redis3
 mysql:
   image: mysql
   environment:
